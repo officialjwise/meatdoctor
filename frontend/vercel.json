@@ -1,0 +1,40 @@
+{
+    "version": 2,
+    "projects": [
+      {
+        "name": "meatdoctorucc-backend",
+        "root": "backend",
+        "builds": [
+          {
+            "src": "server.js",
+            "use": "@vercel/node"
+          }
+        ],
+        "routes": [
+          {
+            "src": "/(.*)",
+            "dest": "server.js"
+          }
+        ]
+      },
+      {
+        "name": "meatdoctorucc-frontend",
+        "root": "frontend",
+        "builds": [
+          {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+              "distDir": "dist"
+            }
+          }
+        ],
+        "routes": [
+          {
+            "src": "/(.*)",
+            "dest": "/index.html"
+          }
+        ]
+      }
+    ]
+  }
